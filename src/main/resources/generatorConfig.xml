@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <properties resource="application.properties"/>
+    <context id="MysqlContext" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="cn.zjut.hotel.utils.CommonMapper"/>
+        </plugin>
+
+        <jdbcConnection driverClass="${spring.datasource.driver-class-name}"
+                        connectionURL="${spring.datasource.url}"
+                        userId="${spring.datasource.username}"
+                        password="${spring.datasource.password}">
+        </jdbcConnection>
+
+        <!-- 对于生成的pojo所在包 -->
+        <javaModelGenerator targetPackage="cn.zjut.hotel.domain" targetProject="src/main/java"/>
+
+        <!-- 对于生成的mapper xml所在目录 -->
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources"/>
+
+        <!-- 配置mapper对应的java接口映射 -->
+        <javaClientGenerator targetPackage="cn.zjut.hotel.repository" targetProject="src/main/java" type="XMLMAPPER"/>
+
+        <table tableName="order"/>
+        <table tableName="register"/>
+        <table tableName="room"/>
+        <table tableName="customer_order"/>
+        <table tableName="check_customer"/>
+        <table tableName="hotel_admin"/>
+        <table tableName="message"/>
+        <table tableName="room_type"/>
+        <table tableName="hotel_waiter"/>
+    </context>
+</generatorConfiguration>

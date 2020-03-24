@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zjut.hotel.repository.OrderMapper">
+    <resultMap id="BaseResultMap" type="cn.zjut.hotel.domain.Order">
+        <id column="order_id" jdbcType="BIGINT" property="orderId"/>
+        <result column="register_phone" jdbcType="VARCHAR" property="registerPhone"/>
+        <result column="room_type_name" jdbcType="VARCHAR" property="roomTypeName"/>
+        <result column="order_created_time" jdbcType="TIMESTAMP" property="orderCreatedTime"/>
+        <result column="order_check_in_time" jdbcType="TIMESTAMP" property="orderCheckInTime"/>
+        <result column="order_leave_time" jdbcType="TIMESTAMP" property="orderLeaveTime"/>
+        <result column="order_payment" jdbcType="DOUBLE" property="orderPayment"/>
+        <result column="order_room_num" jdbcType="INTEGER" property="orderRoomNum"/>
+        <result column="order_detail" jdbcType="VARCHAR" property="orderDetail"/>
+        <result column="is_completed" jdbcType="TINYINT" property="isCompleted"/>
+    </resultMap>
+</mapper>

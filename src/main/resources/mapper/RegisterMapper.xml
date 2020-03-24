@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zjut.hotel.repository.RegisterMapper">
+    <resultMap id="BaseResultMap" type="cn.zjut.hotel.domain.Register">
+        <id column="register_id" jdbcType="BIGINT" property="registerId"/>
+        <result column="register_phone" jdbcType="VARCHAR" property="registerPhone"/>
+        <result column="register_account" jdbcType="VARCHAR" property="registerAccount"/>
+        <result column="register_password" jdbcType="VARCHAR" property="registerPassword"/>
+        <result column="is_male" jdbcType="TINYINT" property="male"/>
+        <result column="register_email" jdbcType="VARCHAR" property="registerEmail"/>
+        <result column="member_level" jdbcType="INTEGER" property="memberLevel"/>
+        <result column="member_score" jdbcType="INTEGER" property="memberScore"/>
+    </resultMap>
+</mapper>
