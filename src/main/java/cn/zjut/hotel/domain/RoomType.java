@@ -1,16 +1,24 @@
 package cn.zjut.hotel.domain;
 
+import tk.mybatis.mapper.annotation.KeySql;
+
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.math.BigDecimal;
 
-@Table(name = "room_type")
+/**
+ * 房间类型表
+ *
+ * @author kuluo
+ */
+@Table(name = "hotel_room_type")
 public class RoomType {
     /**
      * 房间类型序号
      */
     @Id
+    @KeySql(useGeneratedKeys = true)
     @Column(name = "room_type_id")
     private Long roomTypeId;
 

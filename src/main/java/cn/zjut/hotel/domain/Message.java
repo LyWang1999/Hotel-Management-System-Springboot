@@ -1,14 +1,25 @@
 package cn.zjut.hotel.domain;
 
+import tk.mybatis.mapper.annotation.KeySql;
+
 import javax.persistence.Column;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
 
+
+/**
+ * 通知表
+ *
+ * @author kuluo
+ */
+@Table(name = "hotel_message")
 public class Message {
     /**
      * 通知序号
      */
     @Id
+    @KeySql(useGeneratedKeys = true)
     @Column(name = "message_id")
     private Long messageId;
 

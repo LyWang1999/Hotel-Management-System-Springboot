@@ -1,15 +1,23 @@
 package cn.zjut.hotel.domain;
 
+import tk.mybatis.mapper.annotation.KeySql;
+
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * 管理员表
+ *
+ * @author kuluo
+ */
 @Table(name = "hotel_admin")
 public class HotelAdmin {
     /**
      * 管理员序号
      */
     @Id
+    @KeySql(useGeneratedKeys = true)
     @Column(name = "admin_id")
     private Long adminId;
 

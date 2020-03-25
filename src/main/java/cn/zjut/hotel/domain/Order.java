@@ -1,14 +1,24 @@
 package cn.zjut.hotel.domain;
 
+import tk.mybatis.mapper.annotation.KeySql;
+
 import javax.persistence.Column;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
 
+/**
+ * 订单表
+ *
+ * @author kuluo
+ */
+@Table(name = "hotel_order")
 public class Order {
     /**
      * 订单序号
      */
     @Id
+    @KeySql(useGeneratedKeys = true)
     @Column(name = "order_id")
     private Long orderId;
 
