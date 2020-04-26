@@ -1,10 +1,13 @@
 package cn.zjut.hotel.domain;
 
+import cn.zjut.hotel.config.SqlTimeDeserializer;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import tk.mybatis.mapper.annotation.KeySql;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.sql.Time;
 
 /**
  * 服务员表
@@ -32,6 +35,32 @@ public class HotelWaiter {
      */
     @Column(name = "waiter_name")
     private String waiterName;
+
+    /**
+     * 性别 1 男 0 女
+     */
+    @Column(name = "is_male")
+    private Byte male;
+
+    /**
+     * 上班时间
+     */
+    @JsonDeserialize(using = SqlTimeDeserializer.class)
+    @Column(name = "begin_work_time")
+    private Time beginWorkTime;
+
+    /**
+     * 下班时间
+     */
+    @JsonDeserialize(using = SqlTimeDeserializer.class)
+    @Column(name = "end_work_time")
+    private Time endWorkTime;
+
+    /**
+     * 工作日
+     */
+    @Column(name = "work_day")
+    private String workDay;
 
     /**
      * 服务员密码
@@ -91,6 +120,78 @@ public class HotelWaiter {
      */
     public void setWaiterName(String waiterName) {
         this.waiterName = waiterName;
+    }
+
+    /**
+     * 获取性别 1 男 0 女
+     *
+     * @return is_male - 性别 1 男 0 女
+     */
+    public Byte getMale() {
+        return male;
+    }
+
+    /**
+     * 设置性别 1 男 0 女
+     *
+     * @param male 性别 1 男 0 女
+     */
+    public void setMale(Byte male) {
+        this.male = male;
+    }
+
+    /**
+     * 获取上班时间
+     *
+     * @return begin_work_time - 上班时间
+     */
+    public Time getBeginWorkTime() {
+        return beginWorkTime;
+    }
+
+    /**
+     * 设置上班时间
+     *
+     * @param beginWorkTime begin_work_time - 上班时间
+     */
+    public void setBeginWorkTime(Time beginWorkTime) {
+        this.beginWorkTime = beginWorkTime;
+    }
+
+    /**
+     * 获取下班时间
+     *
+     * @return end_word_time - 下班时间
+     */
+    public Time getEndWorkTime() {
+        return endWorkTime;
+    }
+
+    /**
+     * 设置下班时间
+     *
+     * @param endWorkTime end_word_time - 下班时间
+     */
+    public void setEndWorkTime(Time endWorkTime) {
+        this.endWorkTime = endWorkTime;
+    }
+
+    /**
+     * 获取工作日
+     *
+     * @return work_day - 工作日
+     */
+    public String getWorkDay() {
+        return workDay;
+    }
+
+    /**
+     * 设置工作日
+     *
+     * @param workDay work_day - 工作日
+     */
+    public void setWorkDay(String workDay) {
+        this.workDay = workDay;
     }
 
     /**

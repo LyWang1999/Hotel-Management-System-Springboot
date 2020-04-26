@@ -188,7 +188,7 @@ public class JacksonUtil {
     /**
      * 序列化为JSON
      */
-    public static <V> String toJsonString(List<V> list) {
+    public static <V> String to(List<V> list) {
         try {
             return mapper.writeValueAsString(list);
         } catch (JsonProcessingException e) {
@@ -200,7 +200,7 @@ public class JacksonUtil {
     /**
      * 序列化为JSON
      */
-    public static <V> String toJsonString(V v) {
+    public static <V> String to(V v) {
         try {
             return mapper.writeValueAsString(v);
         } catch (JsonProcessingException e) {
@@ -440,7 +440,7 @@ public class JacksonUtil {
         } else if (value instanceof byte[]) {
             ((ObjectNode) jsonNode).put(key, (byte[]) value);
         } else {
-            ((ObjectNode) jsonNode).put(key, toJsonString(value));
+            ((ObjectNode) jsonNode).put(key, to(value));
         }
     }
 

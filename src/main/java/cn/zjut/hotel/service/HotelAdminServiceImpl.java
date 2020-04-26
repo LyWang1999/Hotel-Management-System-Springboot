@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class HotelAdminServiceImpl implements HotelAdminServiceInterface {
-    private static Logger logger = LoggerFactory.getLogger(HotelAdminServiceImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(HotelAdminServiceImpl.class);
     private HotelAdminMapper adminMapper;
 
     @Autowired
