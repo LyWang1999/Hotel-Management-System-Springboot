@@ -43,7 +43,9 @@ public class HotelWaiterServiceImpl implements HotelWaiterServiceInterface {
 
     @Override
     public int getNum() {
-        return waiterMapper.selectAll().size();
+        Example example = new Example(HotelWaiter.class);
+        example.selectProperties("waiterId");
+        return waiterMapper.selectByExample(example).size();
     }
 
     @Override
@@ -74,7 +76,6 @@ public class HotelWaiterServiceImpl implements HotelWaiterServiceInterface {
         } else {
             example.orderBy("waiterId").desc();
         }
-
 
         return waiterMapper.selectByExample(example);
     }

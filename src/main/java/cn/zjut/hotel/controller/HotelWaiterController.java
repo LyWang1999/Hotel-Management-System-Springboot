@@ -26,15 +26,25 @@ public class HotelWaiterController {
         this.waiterService = waiterService;
     }
 
-    @GetMapping("/Info/page/{pageId}/limit/{pageSize}/asc/{asc}")
+    @GetMapping(value = "/info")
+    public JsonResult getOneAdminById(@RequestParam("id") Integer id) {
+        HotelWaiter waiter = waiterService.findOneWaiterById(id);
+        if (waiter == null) {
+            return JsonResult.ok("未查询到匹配的管理员信息", null);
+        } else {
+            return JsonResult.ok("管理员信息查询成功", waiter);
+        }
+    }
+
+    @GetMapping("/info/page/{pageId}/limit/{pageSize}/asc/{asc}")
     public JsonResult getWaiters(@PathVariable int pageId,
                                  @PathVariable int pageSize,
                                  @PathVariable boolean asc,
-                                 @RequestParam(value = "waiterNo", required = false) String waiterNo,
-                                 @RequestParam(value = "waiterName", required = false) String waiterName,
-                                 @RequestParam(value = "beginWorkTime", required = false) String beginWorkTime,
-                                 @RequestParam(value = "endWorkTime", required = false) String endWorkTime,
-                                 @RequestParam(value = "workDay", required = false) String workDay) {
+                                 @RequestParam(value = "waiterNo", defaultValue = "") String waiterNo,
+                                 @RequestParam(value = "waiterName", defaultValue = "") String waiterName,
+                                 @RequestParam(value = "beginWorkTime", defaultValue = "") String beginWorkTime,
+                                 @RequestParam(value = "endWorkTime", defaultValue = "") String endWorkTime,
+                                 @RequestParam(value = "workDay", defaultValue = "") String workDay) {
         HotelWaiter waiter = new HotelWaiter();
         waiter.setWaiterNo(waiterNo);
         waiter.setWaiterName(waiterName);

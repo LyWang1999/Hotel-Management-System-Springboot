@@ -5,6 +5,10 @@
         <id column="waiter_id" jdbcType="BIGINT" property="waiterId"/>
         <result column="waiter_no" jdbcType="VARCHAR" property="waiterNo"/>
         <result column="waiter_name" jdbcType="VARCHAR" property="waiterName"/>
+        <result column="is_male" jdbcType="TINYINT" property="male"/>
+        <result column="begin_work_time" jdbcType="TIME" property="beginWorkTime"/>
+        <result column="end_work_time" jdbcType="TIME" property="endWorkTime"/>
+        <result column="work_day" jdbcType="VARCHAR" property="workDay"/>
         <result column="waiter_password" jdbcType="VARCHAR" property="waiterPassword"/>
     </resultMap>
 </mapper>

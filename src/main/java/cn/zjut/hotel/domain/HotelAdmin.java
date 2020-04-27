@@ -33,6 +33,12 @@ public class HotelAdmin {
     @Column(name = "admin_name")
     private String adminName;
 
+    @Column(name = "is_male")
+    private Boolean male;
+
+    @Column(name = "admin_duty")
+    private String adminDuty;
+
     /**
      * 管理员密码
      */
@@ -91,6 +97,42 @@ public class HotelAdmin {
      */
     public void setAdminName(String adminName) {
         this.adminName = adminName;
+    }
+
+    /**
+     * 获取性别 1 男 0 女
+     *
+     * @return is_male - 性别 1 男 0 女
+     */
+    public Boolean getMale() {
+        return male;
+    }
+
+    /**
+     * 设置性别 1 男 0 女
+     *
+     * @param male 性别 1 男 0 女
+     */
+    public void setMale(Boolean male) {
+        this.male = male;
+    }
+
+    /**
+     * 获取管理员职责
+     *
+     * @return admin_duty - 管理员职责
+     */
+    public String getAdminDuty() {
+        return adminDuty;
+    }
+
+    /**
+     * 设置管理员职责
+     *
+     * @param adminDuty 管理员职责
+     */
+    public void setAdminDuty(String adminDuty) {
+        this.adminDuty = adminDuty;
     }
 
     /**

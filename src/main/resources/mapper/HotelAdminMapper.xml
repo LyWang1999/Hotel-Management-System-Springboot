@@ -5,6 +5,8 @@
         <id column="admin_id" jdbcType="BIGINT" property="adminId"/>
         <result column="admin_no" jdbcType="VARCHAR" property="adminNo"/>
         <result column="admin_name" jdbcType="VARCHAR" property="adminName"/>
+        <result column="is_male" jdbcType="TINYINT" property="male"/>
+        <result column="admin_duty" jdbcType="VARCHAR" property="adminDuty"/>
         <result column="admin_password" jdbcType="VARCHAR" property="adminPassword"/>
     </resultMap>
 </mapper>

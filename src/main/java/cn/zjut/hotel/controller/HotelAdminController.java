@@ -1,14 +1,14 @@
 package cn.zjut.hotel.controller;
 
 import cn.zjut.hotel.domain.HotelAdmin;
+import cn.zjut.hotel.domain.Table;
 import cn.zjut.hotel.service.HotelAdminServiceImpl;
 import cn.zjut.hotel.service.HotelAdminServiceInterface;
 import cn.zjut.hotel.utils.JsonResult;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @author kuluo
@@ -23,7 +23,7 @@ public class HotelAdminController {
         this.adminService = adminService;
     }
 
-    @RequestMapping(value = "/info", method = RequestMethod.GET)
+    @GetMapping(value = "/info")
     public JsonResult getOneAdminById(@RequestParam("id") Integer id) {
         HotelAdmin admin = adminService.findOneAdminById(id);
         if (admin == null) {
@@ -31,5 +31,24 @@ public class HotelAdminController {
         } else {
             return JsonResult.ok("管理员信息查询成功", admin);
         }
+    }
+
+    @GetMapping(value = "/info/page/{pageId}/limit/{pageSize}/asc/{asc}")
+    public JsonResult getAdmins(@PathVariable int pageId,
+                                @PathVariable int pageSize,
+                                @PathVariable boolean asc,
+                                @RequestParam(value = "adminNo", defaultValue = "") String adminNo,
+                                @RequestParam(value = "adminName", defaultValue = "") String adminName,
+                                @RequestParam(value = "adminDuty", defaultValue = "") String adminDuty) {
+        HotelAdmin admin = new HotelAdmin();
+        admin.setAdminNo(adminNo);
+        admin.setAdminName(adminName);
+        admin.setAdminDuty(adminDuty);
+        List<HotelAdmin> adminList = adminService.findAdmins(pageId, pageSize, asc, admin);
+
+        int num = adminService.getNum();
+
+        Table returnTable = new Table(adminList, num);
+        return JsonResult.ok("管理员信息查询成功", returnTable);
     }
 }
