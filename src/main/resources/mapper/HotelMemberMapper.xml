@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zjut.hotel.repository.HotelMemberMapper">
+  <resultMap id="BaseResultMap" type="cn.zjut.hotel.domain.HotelMember">
+    <id column="member_id" jdbcType="BIGINT" property="memberId" />
+    <result column="member_discount" jdbcType="DECIMAL" property="memberDiscount" />
+    <result column="member_detail" jdbcType="VARCHAR" property="memberDetail" />
+    <result column="in_scores" jdbcType="INTEGER" property="inScores" />
+  </resultMap>
+</mapper>

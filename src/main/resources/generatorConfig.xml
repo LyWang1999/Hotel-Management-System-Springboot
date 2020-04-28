@@ -28,14 +28,6 @@
         <!-- 配置mapper对应的java接口映射 -->
         <javaClientGenerator targetPackage="cn.zjut.hotel.repository" targetProject="src/main/java" type="XMLMAPPER"/>
 
-        <table tableName="order"/>
-        <table tableName="register"/>
-        <table tableName="room"/>
-        <table tableName="customer_order"/>
-        <table tableName="check_customer"/>
-        <table tableName="hotel_admin"/>
-        <table tableName="message"/>
-        <table tableName="room_type"/>
-        <table tableName="hotel_waiter"/>
+        <table tableName="hotel_member"/>
     </context>
 </generatorConfiguration>

@@ -7,9 +7,9 @@ import java.util.List;
  */
 public class Table {
     private List<?> items;
-    private int total;
+    private long total;
 
-    public Table(List<?> items, int total) {
+    public Table(List<?> items, long total) {
         this.items = items;
         this.total = total;
     }
@@ -22,11 +22,11 @@ public class Table {
         this.items = items;
     }
 
-    public int getTotal() {
+    public long getTotal() {
         return total;
     }
 
-    public void setTotal(int total) {
+    public void setTotal(long total) {
         this.total = total;
     }
 }

@@ -8,7 +8,8 @@
         <result column="register_password" jdbcType="VARCHAR" property="registerPassword"/>
         <result column="is_male" jdbcType="TINYINT" property="male"/>
         <result column="register_email" jdbcType="VARCHAR" property="registerEmail"/>
-        <result column="member_level" jdbcType="INTEGER" property="memberLevel"/>
+        <result column="member_detail" jdbcType="VARCHAR" property="memberDetail"/>
         <result column="member_score" jdbcType="INTEGER" property="memberScore"/>
+        <result column="member_discount" jdbcType="DECIMAL" property="memberDiscount"/>
     </resultMap>
 </mapper>

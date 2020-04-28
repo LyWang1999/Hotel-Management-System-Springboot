@@ -10,7 +10,6 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.Time;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -51,28 +50,25 @@ public class HotelWaiterController {
         waiter.setBeginWorkTime(!StringUtils.isEmpty(beginWorkTime) ? Time.valueOf(beginWorkTime + ":00") : null);
         waiter.setEndWorkTime(!StringUtils.isEmpty(endWorkTime) ? Time.valueOf(endWorkTime + ":00") : null);
         waiter.setWorkDay(workDay);
-        List<HotelWaiter> waiterList = waiterService.findWaiters(pageId, pageSize, asc, waiter);
+        Table returnTable = waiterService.findWaiters(pageId, pageSize, asc, waiter);
 
-        int num = waiterService.getNum();
-
-        Table returnTable = new Table(waiterList, num);
         return JsonResult.ok("服务员信息查询成功", returnTable);
     }
 
     @PatchMapping("/info")
-    public JsonResult changeWaiterById(@RequestBody HotelWaiter waiter) {
+    public JsonResult changeOneWaiterById(@RequestBody HotelWaiter waiter) {
         boolean res = waiterService.modifyOneWaiterById(waiter);
         return JsonResult.ok("修改服务员信息成功", res);
     }
 
     @PostMapping("/info")
-    public JsonResult addOneWaiterById(@RequestBody HotelWaiter waiter) {
+    public JsonResult createOneWaiterById(@RequestBody HotelWaiter waiter) {
         boolean res = waiterService.addOneWaiter(waiter);
         return JsonResult.ok("添加服务员信息成功", res);
     }
 
     @DeleteMapping("/info")
-    public JsonResult deleteOneWaiterById(@RequestBody Map<String, Integer> map) {
+    public JsonResult dropOneWaiterById(@RequestBody Map<String, Integer> map) {
         boolean res = waiterService.removeOneWaiterById(map.get("waiterId"));
         return JsonResult.ok("删除服务员信息成功", res);
     }

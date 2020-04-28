@@ -5,6 +5,7 @@ import tk.mybatis.mapper.annotation.KeySql;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.math.BigDecimal;
 
 /**
  * 注册用户表
@@ -52,16 +53,22 @@ public class Register {
     private String registerEmail;
 
     /**
-     * 注册用户会员等级
+     * 注册用户会员详细信息
      */
-    @Column(name = "member_level")
-    private Integer memberLevel;
+    @Column(name = "member_detail")
+    private String memberDetail;
 
     /**
      * 注册用户会员积分
      */
     @Column(name = "member_score")
     private Integer memberScore;
+
+    /**
+     * 注册用户会员折扣
+     */
+    @Column(name = "member_discount")
+    private BigDecimal memberDiscount;
 
     /**
      * 获取注册用户序号
@@ -172,21 +179,21 @@ public class Register {
     }
 
     /**
-     * 获取注册用户会员等级
+     * 获取注册用户会员详细信息
      *
-     * @return member_level - 注册用户会员等级
+     * @return member_detail - 注册用户会员详细信息
      */
-    public Integer getMemberLevel() {
-        return memberLevel;
+    public String getMemberDetail() {
+        return memberDetail;
     }
 
     /**
-     * 设置注册用户会员等级
+     * 设置注册用户会员详细信息
      *
-     * @param memberLevel 注册用户会员等级
+     * @param memberDetail 注册用户会员详细信息
      */
-    public void setMemberLevel(Integer memberLevel) {
-        this.memberLevel = memberLevel;
+    public void setMemberDetail(String memberDetail) {
+        this.memberDetail = memberDetail;
     }
 
     /**
@@ -205,5 +212,23 @@ public class Register {
      */
     public void setMemberScore(Integer memberScore) {
         this.memberScore = memberScore;
+    }
+
+    /**
+     * 获取注册用户会员折扣
+     *
+     * @return member_discount - 注册用户会员折扣
+     */
+    public BigDecimal getMemberDiscount() {
+        return memberDiscount;
+    }
+
+    /**
+     * 设置注册用户会员折扣
+     *
+     * @param memberDiscount 注册用户会员折扣
+     */
+    public void setMemberDiscount(BigDecimal memberDiscount) {
+        this.memberDiscount = memberDiscount;
     }
 }

@@ -1,7 +1,9 @@
 package cn.zjut.hotel.service;
 
 import cn.zjut.hotel.domain.HotelWaiter;
+import cn.zjut.hotel.domain.Table;
 import cn.zjut.hotel.repository.HotelWaiterMapper;
+import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -42,14 +44,7 @@ public class HotelWaiterServiceImpl implements HotelWaiterServiceInterface {
     }
 
     @Override
-    public int getNum() {
-        Example example = new Example(HotelWaiter.class);
-        example.selectProperties("waiterId");
-        return waiterMapper.selectByExample(example).size();
-    }
-
-    @Override
-    public List<HotelWaiter> findWaiters(int pageId, int pageSize, boolean asc, HotelWaiter waiter) {
+    public Table findWaiters(int pageId, int pageSize, boolean asc, HotelWaiter waiter) {
         PageHelper.startPage(pageId, pageSize);
 
         Example example = new Example(HotelWaiter.class);
@@ -77,7 +72,10 @@ public class HotelWaiterServiceImpl implements HotelWaiterServiceInterface {
             example.orderBy("waiterId").desc();
         }
 
-        return waiterMapper.selectByExample(example);
+        List<HotelWaiter> waiterList = waiterMapper.selectByExample(example);
+        long count = ((Page<HotelWaiter>) waiterList).getTotal();
+
+        return new Table(waiterList, count);
     }
 
     @Override
