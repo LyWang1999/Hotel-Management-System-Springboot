@@ -1,6 +1,6 @@
 package cn.zjut.hotel.repository;
 
-import cn.zjut.hotel.domain.Order;
+import cn.zjut.hotel.domain.HotelOrder;
 import cn.zjut.hotel.utils.CommonMapper;
 import org.springframework.stereotype.Repository;
 
@@ -10,5 +10,5 @@ import org.springframework.stereotype.Repository;
  * @author kuluo
  */
 @Repository
-public interface OrderMapper extends CommonMapper<Order> {
+public interface HotelOrderMapper extends CommonMapper<HotelOrder> {
 }

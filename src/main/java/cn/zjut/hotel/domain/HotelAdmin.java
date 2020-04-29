@@ -34,7 +34,7 @@ public class HotelAdmin {
     private String adminName;
 
     @Column(name = "is_male")
-    private Boolean male;
+    private Byte male;
 
     @Column(name = "admin_duty")
     private String adminDuty;
@@ -104,7 +104,7 @@ public class HotelAdmin {
      *
      * @return is_male - 性别 1 男 0 女
      */
-    public Boolean getMale() {
+    public Byte getMale() {
         return male;
     }
 
@@ -113,7 +113,7 @@ public class HotelAdmin {
      *
      * @param male 性别 1 男 0 女
      */
-    public void setMale(Boolean male) {
+    public void setMale(Byte male) {
         this.male = male;
     }
 

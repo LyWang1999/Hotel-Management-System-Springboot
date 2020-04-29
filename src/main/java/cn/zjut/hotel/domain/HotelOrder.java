@@ -1,5 +1,8 @@
 package cn.zjut.hotel.domain;
 
+import cn.zjut.hotel.config.JavaDateDeserializer;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import tk.mybatis.mapper.annotation.KeySql;
 
 import javax.persistence.Column;
@@ -13,7 +16,7 @@ import java.util.Date;
  * @author kuluo
  */
 @Table(name = "hotel_order")
-public class Order {
+public class HotelOrder {
     /**
      * 订单序号
      */
@@ -37,18 +40,24 @@ public class Order {
     /**
      * 预定时间
      */
+    @JsonDeserialize(using = JavaDateDeserializer.class)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Shanghai")
     @Column(name = "order_created_time")
     private Date orderCreatedTime;
 
     /**
      * 入住时间
      */
+    @JsonDeserialize(using = JavaDateDeserializer.class)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Shanghai")
     @Column(name = "order_check_in_time")
     private Date orderCheckInTime;
 
     /**
      * 离开时间
      */
+    @JsonDeserialize(using = JavaDateDeserializer.class)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Shanghai")
     @Column(name = "order_leave_time")
     private Date orderLeaveTime;
 
@@ -76,7 +85,7 @@ public class Order {
      * 1 已完成
      */
     @Column(name = "is_completed")
-    private Byte isCompleted;
+    private Byte complete;
 
     /**
      * 获取订单序号
@@ -249,8 +258,8 @@ public class Order {
      * 0 未完成
      * 1 已完成
      */
-    public Byte getIsCompleted() {
-        return isCompleted;
+    public Byte getComplete() {
+        return complete;
     }
 
     /**
@@ -258,11 +267,11 @@ public class Order {
      * 0 未完成
      * 1 已完成
      *
-     * @param isCompleted 订单状态
+     * @param complete 订单状态
      *                    0 未完成
      *                    1 已完成
      */
-    public void setIsCompleted(Byte isCompleted) {
-        this.isCompleted = isCompleted;
+    public void setComplete(Byte complete) {
+        this.complete = complete;
     }
 }

@@ -1,10 +1,8 @@
 package cn.zjut.hotel.service;
 
-import cn.zjut.hotel.domain.Order;
-import cn.zjut.hotel.repository.OrderMapper;
+import cn.zjut.hotel.domain.HotelOrder;
+import cn.zjut.hotel.repository.HotelOrderMapper;
 import com.github.pagehelper.PageHelper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,18 +14,22 @@ import java.util.List;
  * @author kuluo
  */
 @Service
-public class OrderServiceImpl implements OrderServiceInterface {
-    private Logger logger = LoggerFactory.getLogger(OrderServiceImpl.class);
-    private OrderMapper orderMapper;
+public class HotelOrderServiceImpl implements HotelOrderServiceInterface {
+    private HotelOrderMapper orderMapper;
 
     @Autowired
-    public void setOrderMapper(OrderMapper orderMapper) {
+    public void setOrderMapper(HotelOrderMapper orderMapper) {
         this.orderMapper = orderMapper;
     }
 
     @Override
-    public List<Order> findAllOrders(Integer pageId, Integer pageSize) {
+    public List<HotelOrder> findOrders(Integer pageId, Integer pageSize) {
         PageHelper.startPage(pageId, pageSize);
         return orderMapper.selectAll();
+    }
+
+    @Override
+    public HotelOrder findOneOrderById(int orderId) {
+        return orderMapper.selectByPrimaryKey(orderId);
     }
 }

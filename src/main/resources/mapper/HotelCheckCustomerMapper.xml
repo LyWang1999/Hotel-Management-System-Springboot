@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zjut.hotel.repository.HotelCheckCustomerMapper">
+  <resultMap id="BaseResultMap" type="cn.zjut.hotel.domain.HotelCheckCustomer">
+    <id column="check_customer_id" jdbcType="BIGINT" property="checkCustomerId" />
+    <result column="check_customer_id_card" jdbcType="VARCHAR" property="checkCustomerIdCard" />
+    <result column="check_customer_name" jdbcType="VARCHAR" property="checkCustomerName" />
+    <result column="is_male" jdbcType="TINYINT" property="male" />
+    <result column="check_customer_phone" jdbcType="VARCHAR" property="checkCustomerPhone" />
+    <result column="order_id" jdbcType="BIGINT" property="orderId" />
+    <result column="room_no" jdbcType="VARCHAR" property="roomNo" />
+    <result column="check_customer_check_in_time" jdbcType="TIMESTAMP" property="checkCustomerCheckInTime" />
+    <result column="check_customer_leave_time" jdbcType="TIMESTAMP" property="checkCustomerLeaveTime" />
+    <result column="is_living" jdbcType="TINYINT" property="living" />
+  </resultMap>
+</mapper>

@@ -1,6 +1,6 @@
 package cn.zjut.hotel.service;
 
-import cn.zjut.hotel.domain.Order;
+import cn.zjut.hotel.domain.HotelOrder;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import java.util.List;
  *
  * @author kuluo
  */
-public interface OrderServiceInterface {
+public interface HotelOrderServiceInterface {
     /**
      * 查询所有订单
      *
@@ -17,5 +17,7 @@ public interface OrderServiceInterface {
      * @param pageSize 每页大小
      * @return 订单集合
      */
-    List<Order> findAllOrders(Integer pageId, Integer pageSize);
+    List<HotelOrder> findOrders(Integer pageId, Integer pageSize);
+
+    HotelOrder findOneOrderById(int orderId);
 }
