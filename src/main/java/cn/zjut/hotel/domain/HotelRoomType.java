@@ -13,7 +13,7 @@ import java.math.BigDecimal;
  * @author kuluo
  */
 @Table(name = "hotel_room_type")
-public class RoomType {
+public class HotelRoomType {
     /**
      * 房间类型序号
      */

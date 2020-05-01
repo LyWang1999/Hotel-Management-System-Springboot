@@ -1,10 +1,10 @@
 package cn.zjut.hotel.service;
 
 import cn.zjut.hotel.domain.HotelMember;
-import cn.zjut.hotel.domain.Register;
+import cn.zjut.hotel.domain.HotelRegister;
 import cn.zjut.hotel.domain.Table;
 import cn.zjut.hotel.repository.HotelMemberMapper;
-import cn.zjut.hotel.repository.RegisterMapper;
+import cn.zjut.hotel.repository.HotelRegisterMapper;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,12 +18,12 @@ import java.util.List;
  * @author kuluo
  */
 @Service
-public class RegisterServiceImpl implements RegisterServiceInterface {
-    private RegisterMapper registerMapper;
+public class HotelRegisterServiceImpl implements RegisterServiceInterface {
+    private HotelRegisterMapper registerMapper;
     private HotelMemberMapper memberMapper;
 
     @Autowired
-    public void setRegisterMapper(RegisterMapper registerMapper) {
+    public void setRegisterMapper(HotelRegisterMapper registerMapper) {
         this.registerMapper = registerMapper;
     }
 
@@ -33,10 +33,17 @@ public class RegisterServiceImpl implements RegisterServiceInterface {
     }
 
     @Override
-    public Table findRegisters(int pageId, int pageSize, boolean asc, Register register) {
+    public HotelRegister findOneRegisterById(String registerPhone) {
+        Example example = new Example(HotelRegister.class);
+        example.createCriteria().andEqualTo("registerPhone", registerPhone);
+        return registerMapper.selectOneByExample(example);
+    }
+
+    @Override
+    public Table findRegisters(int pageId, int pageSize, boolean asc, HotelRegister register) {
         PageHelper.startPage(pageId, pageSize);
 
-        Example example = new Example(Register.class);
+        Example example = new Example(HotelRegister.class);
         Example.Criteria criteria = example.createCriteria();
 
         if (!StringUtils.isEmpty(register.getRegisterPhone())) {
@@ -52,15 +59,15 @@ public class RegisterServiceImpl implements RegisterServiceInterface {
             example.orderBy("registerId").desc();
         }
 
-        List<Register> registerList = registerMapper.selectByExample(example);
+        List<HotelRegister> registerList = registerMapper.selectByExample(example);
 
-        long count = ((Page<Register>) registerList).getTotal();
+        long count = ((Page<HotelRegister>) registerList).getTotal();
 
         return new Table(registerList, count);
     }
 
     @Override
-    public boolean modifyOneRegisterById(Register register) {
+    public boolean modifyOneRegisterById(HotelRegister register) {
         Example example = new Example(HotelMember.class);
         example.createCriteria().andGreaterThanOrEqualTo("inScores", register.getMemberScore());
         List<HotelMember> member = memberMapper.selectByExample(example);
@@ -72,7 +79,7 @@ public class RegisterServiceImpl implements RegisterServiceInterface {
     }
 
     @Override
-    public boolean addOneRegisterById(Register register) {
+    public boolean addOneRegisterById(HotelRegister register) {
         return registerMapper.insertSelective(register) > 0;
     }
 

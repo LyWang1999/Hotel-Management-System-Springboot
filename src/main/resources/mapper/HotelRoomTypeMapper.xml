@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zjut.hotel.repository.RoomTypeMapper">
-    <resultMap id="BaseResultMap" type="cn.zjut.hotel.domain.RoomType">
+<mapper namespace="cn.zjut.hotel.repository.HotelRoomTypeMapper">
+    <resultMap id="BaseResultMap" type="cn.zjut.hotel.domain.HotelRoomType">
         <id column="room_type_id" jdbcType="BIGINT" property="roomTypeId"/>
         <result column="room_type_name" jdbcType="VARCHAR" property="roomTypeName"/>
         <result column="room_type_max_living" jdbcType="INTEGER" property="roomTypeMaxLiving"/>

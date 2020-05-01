@@ -1,8 +1,8 @@
 package cn.zjut.hotel.controller;
 
-import cn.zjut.hotel.domain.Register;
+import cn.zjut.hotel.domain.HotelRegister;
 import cn.zjut.hotel.domain.Table;
-import cn.zjut.hotel.service.RegisterServiceImpl;
+import cn.zjut.hotel.service.HotelRegisterServiceImpl;
 import cn.zjut.hotel.service.RegisterServiceInterface;
 import cn.zjut.hotel.utils.JsonResult;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +15,18 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/register")
-public class RegisterController {
+public class HotelRegisterController {
     private RegisterServiceInterface registerService;
 
     @Autowired
-    public void setRegisterService(RegisterServiceImpl registerService) {
+    public void setRegisterService(HotelRegisterServiceImpl registerService) {
         this.registerService = registerService;
+    }
+
+    @GetMapping("/info/register-phone/{registerPhone}")
+    public JsonResult getOneRegisterById(@PathVariable String registerPhone) {
+        HotelRegister register = registerService.findOneRegisterById(registerPhone);
+        return JsonResult.ok("注册用户信息查询成功", register);
     }
 
     @GetMapping("/info/page/{pageId}/limit/{pageSize}/asc/{asc}")
@@ -29,7 +35,7 @@ public class RegisterController {
                                    @PathVariable boolean asc,
                                    @RequestParam(value = "registerPhone", defaultValue = "") String registerPhone,
                                    @RequestParam(value = "registerAccount", defaultValue = "") String registerAccount) {
-        Register register = new Register();
+        HotelRegister register = new HotelRegister();
         register.setRegisterPhone(registerPhone);
         register.setRegisterAccount(registerAccount);
         Table returnTable = registerService.findRegisters(pageId, pageSize, asc, register);
@@ -38,13 +44,13 @@ public class RegisterController {
     }
 
     @PatchMapping("/info")
-    public JsonResult changeRegisterById(@RequestBody Register register) {
+    public JsonResult changeRegisterById(@RequestBody HotelRegister register) {
         boolean res = registerService.modifyOneRegisterById(register);
         return JsonResult.ok("修改注册用户信息成功", res);
     }
 
     @PostMapping("/info")
-    public JsonResult createOneRegisterById(@RequestBody Register register) {
+    public JsonResult createOneRegisterById(@RequestBody HotelRegister register) {
         boolean res = registerService.addOneRegisterById(register);
         return JsonResult.ok("添加注册用户信息成功", res);
     }

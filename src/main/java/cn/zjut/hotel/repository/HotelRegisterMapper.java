@@ -1,6 +1,6 @@
 package cn.zjut.hotel.repository;
 
-import cn.zjut.hotel.domain.Register;
+import cn.zjut.hotel.domain.HotelRegister;
 import cn.zjut.hotel.utils.CommonMapper;
 import org.springframework.stereotype.Repository;
 
@@ -10,5 +10,5 @@ import org.springframework.stereotype.Repository;
  * @author kuluo
  */
 @Repository
-public interface RegisterMapper extends CommonMapper<Register> {
+public interface HotelRegisterMapper extends CommonMapper<HotelRegister> {
 }

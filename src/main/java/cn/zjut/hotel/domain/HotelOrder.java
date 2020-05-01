@@ -49,7 +49,7 @@ public class HotelOrder {
      * 入住时间
      */
     @JsonDeserialize(using = JavaDateDeserializer.class)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Shanghai")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "Asia/Shanghai")
     @Column(name = "order_check_in_time")
     private Date orderCheckInTime;
 
@@ -57,7 +57,7 @@ public class HotelOrder {
      * 离开时间
      */
     @JsonDeserialize(using = JavaDateDeserializer.class)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Shanghai")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "Asia/Shanghai")
     @Column(name = "order_leave_time")
     private Date orderLeaveTime;
 

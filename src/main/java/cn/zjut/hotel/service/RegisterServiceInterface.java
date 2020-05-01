@@ -1,14 +1,16 @@
 package cn.zjut.hotel.service;
 
-import cn.zjut.hotel.domain.Register;
+import cn.zjut.hotel.domain.HotelRegister;
 import cn.zjut.hotel.domain.Table;
 
 public interface RegisterServiceInterface {
-    Table findRegisters(int pageId, int pageSize, boolean asc, Register register);
+    HotelRegister findOneRegisterById(String registerPhone);
 
-    boolean modifyOneRegisterById(Register register);
+    Table findRegisters(int pageId, int pageSize, boolean asc, HotelRegister register);
 
-    boolean addOneRegisterById(Register register);
+    boolean modifyOneRegisterById(HotelRegister register);
+
+    boolean addOneRegisterById(HotelRegister register);
 
     boolean removeOneRegisterById(int registerId);
 }

@@ -12,7 +12,7 @@ import javax.persistence.Table;
  * @author kuluo
  */
 @Table(name = "hotel_room")
-public class Room {
+public class HotelRoom {
     /**
      * 房间序号
      */
@@ -43,7 +43,7 @@ public class Room {
      * 1 房间空余 0 房间不空余
      */
     @Column(name = "is_empty")
-    private Byte isEmpty;
+    private Byte empty;
 
     /**
      * @return room_id
@@ -118,16 +118,16 @@ public class Room {
      *
      * @return is_empty - 1 房间空余 0 房间不空余
      */
-    public Byte getIsEmpty() {
-        return isEmpty;
+    public Byte getEmpty() {
+        return empty;
     }
 
     /**
      * 设置1 房间空余 0 房间不空余
      *
-     * @param isEmpty 1 房间空余 0 房间不空余
+     * @param empty 1 房间空余 0 房间不空余
      */
-    public void setIsEmpty(Byte isEmpty) {
-        this.isEmpty = isEmpty;
+    public void setEmpty(Byte empty) {
+        this.empty = empty;
     }
 }
