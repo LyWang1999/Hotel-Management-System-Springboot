@@ -50,7 +50,7 @@ public class HotelCheckCustomerController {
     }
 
     @DeleteMapping("/info")
-    public JsonResult deleteOneCheckCustomerById(@RequestBody Map<String, Integer> map) {
+    public JsonResult deleteOneCheckCustomerById(@RequestBody Map<String, Long> map) {
         boolean res = checkCustomerService.removeOneCheckCustomer(map.get("checkCustomerId"));
         return JsonResult.ok("删除入住顾客信息成功", res);
     }

@@ -65,7 +65,7 @@ public class HotelCheckCustomerServiceImpl implements HotelCheckCustomerServiceI
     }
 
     @Override
-    public boolean removeOneCheckCustomer(int checkCustomerId) {
+    public boolean removeOneCheckCustomer(long checkCustomerId) {
         return checkCustomerMapper.deleteByPrimaryKey(checkCustomerId) > 0;
     }
 }

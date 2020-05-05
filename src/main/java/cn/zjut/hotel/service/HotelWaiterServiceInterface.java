@@ -12,5 +12,5 @@ public interface HotelWaiterServiceInterface {
 
     boolean addOneWaiter(HotelWaiter waiter);
 
-    boolean removeOneWaiterById(int waiterId);
+    boolean removeOneWaiterById(long waiterId);
 }

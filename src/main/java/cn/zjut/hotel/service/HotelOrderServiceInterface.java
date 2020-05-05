@@ -17,5 +17,5 @@ public interface HotelOrderServiceInterface {
 
     boolean modifyOneOrderById(HotelOrder order);
 
-    boolean removeOneOrderById(int orderId);
+    boolean removeOneOrderById(long orderId);
 }

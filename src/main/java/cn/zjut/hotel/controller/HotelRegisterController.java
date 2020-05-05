@@ -23,7 +23,7 @@ public class HotelRegisterController {
         this.registerService = registerService;
     }
 
-    @GetMapping("/info/register-phone/{registerPhone}")
+    @GetMapping("/info/phone/{registerPhone}")
     public JsonResult getOneRegisterById(@PathVariable String registerPhone) {
         HotelRegister register = registerService.findOneRegisterById(registerPhone);
         return JsonResult.ok("注册用户信息查询成功", register);
@@ -50,13 +50,13 @@ public class HotelRegisterController {
     }
 
     @PostMapping("/info")
-    public JsonResult createOneRegisterById(@RequestBody HotelRegister register) {
+    public JsonResult createOneRegister(@RequestBody HotelRegister register) {
         boolean res = registerService.addOneRegisterById(register);
         return JsonResult.ok("添加注册用户信息成功", res);
     }
 
     @DeleteMapping("/info")
-    public JsonResult dropOneRegisterById(@RequestBody Map<String, Integer> map) {
+    public JsonResult dropOneRegisterById(@RequestBody Map<String, Long> map) {
         boolean res = registerService.removeOneRegisterById(map.get("registerId"));
         return JsonResult.ok("删除注册用户信息成功", res);
     }

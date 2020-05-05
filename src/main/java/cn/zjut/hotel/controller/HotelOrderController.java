@@ -67,7 +67,7 @@ public class HotelOrderController {
     }
 
     @DeleteMapping("/info")
-    public JsonResult removeOneOrderById(@RequestBody Map<String, Integer> map) {
+    public JsonResult removeOneOrderById(@RequestBody Map<String, Long> map) {
         boolean res = orderService.removeOneOrderById(map.get("orderId"));
         return JsonResult.ok("订单信息删除成功", res);
     }

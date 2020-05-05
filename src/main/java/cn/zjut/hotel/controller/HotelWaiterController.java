@@ -62,13 +62,13 @@ public class HotelWaiterController {
     }
 
     @PostMapping("/info")
-    public JsonResult createOneWaiterById(@RequestBody HotelWaiter waiter) {
+    public JsonResult createOneWaiter(@RequestBody HotelWaiter waiter) {
         boolean res = waiterService.addOneWaiter(waiter);
         return JsonResult.ok("添加服务员信息成功", res);
     }
 
     @DeleteMapping("/info")
-    public JsonResult dropOneWaiterById(@RequestBody Map<String, Integer> map) {
+    public JsonResult dropOneWaiterById(@RequestBody Map<String, Long> map) {
         boolean res = waiterService.removeOneWaiterById(map.get("waiterId"));
         return JsonResult.ok("删除服务员信息成功", res);
     }

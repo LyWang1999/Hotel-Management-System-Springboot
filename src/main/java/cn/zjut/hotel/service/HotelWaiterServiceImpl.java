@@ -89,7 +89,7 @@ public class HotelWaiterServiceImpl implements HotelWaiterServiceInterface {
     }
 
     @Override
-    public boolean removeOneWaiterById(int waiterId) {
+    public boolean removeOneWaiterById(long waiterId) {
         return waiterMapper.deleteByPrimaryKey(waiterId) > 0;
     }
 }

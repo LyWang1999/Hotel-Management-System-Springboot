@@ -8,5 +8,5 @@ public interface HotelCheckCustomerServiceInterface {
 
     boolean modifyOneCheckCustomerById(HotelCheckCustomer checkCustomer);
 
-    boolean removeOneCheckCustomer(int checkCustomerId);
+    boolean removeOneCheckCustomer(long checkCustomerId);
 }

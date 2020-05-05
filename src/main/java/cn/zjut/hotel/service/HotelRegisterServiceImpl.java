@@ -84,7 +84,7 @@ public class HotelRegisterServiceImpl implements RegisterServiceInterface {
     }
 
     @Override
-    public boolean removeOneRegisterById(int registerId) {
+    public boolean removeOneRegisterById(long registerId) {
         return registerMapper.deleteByPrimaryKey(registerId) > 0;
     }
 }

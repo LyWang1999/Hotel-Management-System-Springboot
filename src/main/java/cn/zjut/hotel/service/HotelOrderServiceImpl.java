@@ -73,7 +73,7 @@ public class HotelOrderServiceImpl implements HotelOrderServiceInterface {
     }
 
     @Override
-    public boolean removeOneOrderById(int orderId) {
+    public boolean removeOneOrderById(long orderId) {
         return orderMapper.deleteByPrimaryKey(orderId) > 0;
     }
 }

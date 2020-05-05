@@ -12,5 +12,5 @@ public interface RegisterServiceInterface {
 
     boolean addOneRegisterById(HotelRegister register);
 
-    boolean removeOneRegisterById(int registerId);
+    boolean removeOneRegisterById(long registerId);
 }

@@ -7,4 +7,9 @@
         <result column="room_type_max_living" jdbcType="INTEGER" property="roomTypeMaxLiving"/>
         <result column="room_type_price" jdbcType="DECIMAL" property="roomTypePrice"/>
     </resultMap>
+
+    <select id="selectRoomTypeNames" resultType="string">
+        select room_type_name
+        from hotel_room_type
+    </select>
 </mapper>
