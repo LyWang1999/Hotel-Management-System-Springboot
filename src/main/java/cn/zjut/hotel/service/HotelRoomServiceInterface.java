@@ -7,7 +7,9 @@ import java.util.List;
 import java.util.Map;
 
 public interface HotelRoomServiceInterface {
-    List<Map<String, Byte>> findRoomNumByTypes();
+    List<Map<String, Byte>> findEmptyRoomNumByAllTypes();
+
+    List<HotelRoom> findEmptyRoomsByType(String roomTypeName);
 
     Table findRooms(int pageId, int pageSize, boolean asc, HotelRoom room);
 

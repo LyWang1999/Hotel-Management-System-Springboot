@@ -26,8 +26,19 @@ public class HotelRoomServiceImpl implements HotelRoomServiceInterface {
     }
 
     @Override
-    public List<Map<String, Byte>> findRoomNumByTypes() {
+    public List<Map<String, Byte>> findEmptyRoomNumByAllTypes() {
         return roomMapper.selectRoomNumByTypes();
+    }
+
+    @Override
+    public List<HotelRoom> findEmptyRoomsByType(String roomTypeName) {
+        Example example = new Example(HotelRoom.class);
+        example.createCriteria()
+                .andEqualTo("roomTypeName", roomTypeName)
+                .andEqualTo("empty", 1);
+        example.orderBy("roomId")
+                .asc();
+        return roomMapper.selectByExample(example);
     }
 
     @Override

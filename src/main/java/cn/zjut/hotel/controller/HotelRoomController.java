@@ -23,10 +23,16 @@ public class HotelRoomController {
         this.roomService = roomService;
     }
 
-    @GetMapping("/empty-num")
-    public JsonResult getRoomNumByTypes() {
-        List<Map<String, Byte>> map = roomService.findRoomNumByTypes();
+    @GetMapping("/empty/num")
+    public JsonResult getEmptyRoomNumByAllTypes() {
+        List<Map<String, Byte>> map = roomService.findEmptyRoomNumByAllTypes();
         return JsonResult.ok("房间类型及数量查询成功", map);
+    }
+
+    @GetMapping("/empty/type")
+    public JsonResult getEmptyRoomsByType(@RequestParam(value = "roomTypeName", defaultValue = "") String roomTypeName) {
+        List<HotelRoom> roomList = roomService.findEmptyRoomsByType(roomTypeName);
+        return JsonResult.ok("房间类型查找成功", roomList);
     }
 
     @GetMapping("/info/page/{pageId}/limit/{pageSize}/asc/{asc}")
