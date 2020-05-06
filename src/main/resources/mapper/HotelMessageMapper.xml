@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zjut.hotel.repository.MessageMapper">
-    <resultMap id="BaseResultMap" type="cn.zjut.hotel.domain.Message">
+<mapper namespace="cn.zjut.hotel.repository.HotelMessageMapper">
+    <resultMap id="BaseResultMap" type="cn.zjut.hotel.domain.HotelMessage">
         <id column="message_id" jdbcType="BIGINT" property="messageId"/>
         <result column="message_title" jdbcType="VARCHAR" property="messageTitle"/>
         <result column="message_content" jdbcType="VARCHAR" property="messageContent"/>

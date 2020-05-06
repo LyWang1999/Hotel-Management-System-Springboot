@@ -1,5 +1,6 @@
 package cn.zjut.hotel.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import tk.mybatis.mapper.annotation.KeySql;
 
 import javax.persistence.Column;
@@ -14,7 +15,7 @@ import java.util.Date;
  * @author kuluo
  */
 @Table(name = "hotel_message")
-public class Message {
+public class HotelMessage {
     /**
      * 通知序号
      */
@@ -38,6 +39,7 @@ public class Message {
     /**
      * 消息发送时间
      */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Shanghai")
     @Column(name = "message_send_time")
     private Date messageSendTime;
 
