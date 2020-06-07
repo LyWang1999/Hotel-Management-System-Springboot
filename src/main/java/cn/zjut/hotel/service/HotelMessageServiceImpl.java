@@ -25,6 +25,11 @@ public class HotelMessageServiceImpl implements HotelMessageServiceInterface {
     }
 
     @Override
+    public int getMessageNum() {
+        return messageMapper.selectAll().size();
+    }
+
+    @Override
     public Table findMessages(int pageId, int pageSize, boolean asc, Date beginDate, Date endDate, String sortFiled) {
         PageHelper.startPage(pageId, pageSize);
 

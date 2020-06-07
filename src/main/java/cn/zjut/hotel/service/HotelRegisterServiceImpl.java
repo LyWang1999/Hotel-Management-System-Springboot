@@ -33,6 +33,11 @@ public class HotelRegisterServiceImpl implements RegisterServiceInterface {
     }
 
     @Override
+    public int getRegisterNum() {
+        return registerMapper.selectAll().size();
+    }
+
+    @Override
     public HotelRegister findOneRegisterById(String registerPhone) {
         Example example = new Example(HotelRegister.class);
         example.createCriteria().andEqualTo("registerPhone", registerPhone);

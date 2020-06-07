@@ -28,6 +28,22 @@ public class HotelOrderServiceImpl implements HotelOrderServiceInterface {
     }
 
     @Override
+    public int getOrderNum() {
+        return orderMapper.selectAll().size();
+    }
+
+    @Override
+    public long getOrderPriceSum() {
+        Example example = new Example(HotelOrder.class);
+        example.selectProperties("orderPayment");
+        List<HotelOrder> prices = orderMapper.selectByExample(example);
+        long sum = prices.stream()
+                .mapToLong(order -> order.getOrderPayment().longValue())
+                .sum();
+        return sum;
+    }
+
+    @Override
     public Table findOrders(int pageId, int pageSize, boolean asc, HotelOrder order, Date beginDate, Date endDate) {
         PageHelper.startPage(pageId, pageSize);
 

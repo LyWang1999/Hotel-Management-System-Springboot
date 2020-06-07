@@ -16,7 +16,7 @@ public class SqlTimeDeserializer extends JsonDeserializer<Time> {
     @Override
     public Time deserialize(JsonParser p, DeserializationContext context) throws IOException, JsonProcessingException {
         if (!StringUtils.isEmpty(p.getValueAsString())) {
-            return Time.valueOf(p.getValueAsString() + ":00");
+            return Time.valueOf(p.getValueAsString());
         } else {
             return null;
         }

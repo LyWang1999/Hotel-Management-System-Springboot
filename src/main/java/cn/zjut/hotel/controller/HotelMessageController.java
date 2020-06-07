@@ -27,6 +27,12 @@ public class HotelMessageController {
         this.messageService = messageService;
     }
 
+    @GetMapping("/num")
+    public JsonResult getMessageNum() {
+        int num = messageService.getMessageNum();
+        return JsonResult.ok("查找公告数量成功", num);
+    }
+
     @GetMapping("/info/page/{pageId}/limit/{pageSize}/asc/{asc}")
     public JsonResult getMessages(@PathVariable int pageId,
                                   @PathVariable int pageSize,

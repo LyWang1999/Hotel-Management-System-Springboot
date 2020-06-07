@@ -11,6 +11,8 @@ import java.util.Date;
  * @author kuluo
  */
 public interface HotelOrderServiceInterface {
+    long getOrderPriceSum();
+
     Table findOrders(int pageId, int pageSize, boolean asc, HotelOrder order, Date beginDate, Date endDate);
 
     HotelOrder findOneOrderById(int orderId);
@@ -18,4 +20,6 @@ public interface HotelOrderServiceInterface {
     boolean modifyOneOrderById(HotelOrder order);
 
     boolean removeOneOrderById(long orderId);
+
+    int getOrderNum();
 }

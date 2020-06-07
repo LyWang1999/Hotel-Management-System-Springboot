@@ -4,6 +4,8 @@ import cn.zjut.hotel.domain.HotelRegister;
 import cn.zjut.hotel.domain.Table;
 
 public interface RegisterServiceInterface {
+    int getRegisterNum();
+
     HotelRegister findOneRegisterById(String registerPhone);
 
     Table findRegisters(int pageId, int pageSize, boolean asc, HotelRegister register);

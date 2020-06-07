@@ -29,6 +29,12 @@ public class HotelRegisterController {
         return JsonResult.ok("注册用户信息查询成功", register);
     }
 
+    @GetMapping("/num")
+    public JsonResult getRegisterNum() {
+        int num = registerService.getRegisterNum();
+        return JsonResult.ok("注册用户人数查询成功", num);
+    }
+
     @GetMapping("/info/page/{pageId}/limit/{pageSize}/asc/{asc}")
     public JsonResult getRegisters(@PathVariable int pageId,
                                    @PathVariable int pageSize,

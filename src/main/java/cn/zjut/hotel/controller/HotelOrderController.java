@@ -26,6 +26,18 @@ public class HotelOrderController {
         this.orderService = orderService;
     }
 
+    @GetMapping("/num")
+    public JsonResult getOrderNum() {
+        int num = orderService.getOrderNum();
+        return JsonResult.ok("查询订单数量成功", num);
+    }
+
+    @GetMapping("/price-sum")
+    public JsonResult getOrderPriceSum() {
+        long sum = orderService.getOrderPriceSum();
+        return JsonResult.ok("查询订单价格总额成功", sum);
+    }
+
     @GetMapping("/info/id/{orderId}")
     public JsonResult getOneOrderById(@PathVariable("orderId") int orderId) {
         HotelOrder order = orderService.findOneOrderById(orderId);
@@ -67,7 +79,7 @@ public class HotelOrderController {
     }
 
     @DeleteMapping("/info")
-    public JsonResult removeOneOrderById(@RequestBody Map<String, Long> map) {
+    public JsonResult dropOneOrderById(@RequestBody Map<String, Long> map) {
         boolean res = orderService.removeOneOrderById(map.get("orderId"));
         return JsonResult.ok("订单信息删除成功", res);
     }
